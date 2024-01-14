@@ -3,11 +3,11 @@
 
 void update(int *a, int *b)
 {
-  int test = *a + *b;
-  int test2 = *a - *b;
+  int sum = *a + *b;
+  int difference = *a - *b;
 
-  *a = test;
-  *b = abs(test2);
+  *a = sum;
+  *b = abs(difference);
 }
 
 int main()
