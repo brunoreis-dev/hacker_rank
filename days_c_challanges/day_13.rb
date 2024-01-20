@@ -15,7 +15,7 @@ end
 
 class MyBook < Book
   attr_accessor :price
-  
+
   def initialize(title, author, price)
     super(title, author)
     @price = price
@@ -24,7 +24,7 @@ class MyBook < Book
   def display
     print("\nTitle: ", @title)
     print("\nAuthor: ", @author)
-    print("\nPrice: ", @price) 
+    print("\nPrice: ", @price)
   end
 end
 new_novel = MyBook.new("Livro teste", "Autor Teste", 300)

@@ -27,7 +27,7 @@ end
 
 T=gets.to_i
 for i in (1..T)do
-  age=gets.to_i
+    age=gets.to_i
   p=Person.new(age)
   p.amIOld()
   for j in (1..3)do
@@ -35,4 +35,4 @@ for i in (1..T)do
   end
   p.amIOld
   puts ""
-end      
+end

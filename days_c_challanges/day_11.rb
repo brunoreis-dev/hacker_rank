@@ -14,7 +14,7 @@ class Student < Person
         super(firstName, lastName, id)
         @scores = scores
     end
-    
+
     def calculate()
         average = @scores.sum / @scores.length
 
@@ -42,5 +42,5 @@ id = input[2].to_i
 numScores = gets.to_i
 scores = gets.strip().split().map!(&:to_i)
 s = Student.new(firstName, lastName, id, scores)
-s.printPerson           
+s.printPerson
 print("\nGrade: " + s.calculate)
