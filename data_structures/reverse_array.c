@@ -48,7 +48,7 @@ int *reverseArray(int a_count, int *a)
 
   for (int i = 0; i < a_count; i++)
   {
-    *(temp_arr + i) = a[a_count - 1 - i];
+    *(temp_arr + i) = *(a + a_count - 1 - i);
   }
 
   return temp_arr;
