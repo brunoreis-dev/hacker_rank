@@ -16,7 +16,7 @@ factorial(5) do |n|
 end
 
 
-def factorial_with_login(n)
+def factorial_with_logic(n)
   if n == 0 || n == 1
     1
   else
@@ -33,4 +33,4 @@ def factorial_with_login(n)
 end
 
 
-factorial_with_login(5) do |result| puts result end
+factorial_with_logic(5) do |result| puts result end
