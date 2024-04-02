@@ -4,3 +4,5 @@ def count_multibyte_char(string)
 
   multibytes
 end
+
+count_multibyte_char('¥1000')
