@@ -1,11 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int countingValleys(int steps, char *path)
 {
-  int counting_valley = 0;
+  int sea_level = 0;
+  int valley_count = 0;
+  int in_valley = false;
 
-  return counting_valley;
+  for (int i = 0; i < steps; i++)
+  {
+
+    if (path[i] == 'U')
+    {
+      sea_level++;
+    }
+    else if (path[i] == 'D')
+    {
+      sea_level--;
+    }
+
+    if (sea_level < 0 && !in_valley)
+    {
+      in_valley = true;
+    }
+
+    if (sea_level == 0 && in_valley)
+    {
+      valley_count++;
+      in_valley = false;
+    }
+  }
+
+  return valley_count;
 }
 
 int main()
