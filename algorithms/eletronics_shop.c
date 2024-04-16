@@ -1,14 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
-/*
- * Complete the getMoneySpent function below.
- */
+int compare(const void *a, const void *b)
+{
+  return (*(int *)a - *(int *)b);
+}
+
 int getMoneySpent(int keyboards_count, int *keyboards, int drives_count, int *drives, int b)
 {
-  /*
-   * Write your code here.
-   */
+  qsort(keyboards, keyboards_count, sizeof(int), compare);
+  qsort(drives, drives_count, sizeof(int), compare);
+
+  int max_spent = -1, i = 0, j = drives_count - 1;
+
+  while (i < keyboards_count && j >= 0)
+  {
+    int sum = keyboards[i] + drives[j];
+    if (sum <= b)
+    {
+      if (sum > max_spent)
+      {
+        max_spent = sum;
+      }
+      i++;
+    }
+    else
+    {
+      j--;
+    }
+  }
+
+  return max_spent;
 }
 
 int main()
@@ -17,16 +40,16 @@ int main()
 
   scanf("%d %d %d", &b, &n, &m);
 
-  int *keyboards = (int *)malloc(n * sizeof(int));
+  int32_t *keyboards = (int32_t *)malloc(n * sizeof(int32_t));
 
-  for (int i = 0; i < m; i++)
+  for (int i = 0; i < n; i++)
   {
     scanf("%d", &keyboards[i]);
   }
 
   int keyboards_count = n;
 
-  int *drives = (int *)malloc(m * sizeof(int));
+  int32_t *drives = (int32_t *)malloc(m * sizeof(int32_t));
 
   for (int i = 0; i < m; i++)
   {
@@ -35,13 +58,12 @@ int main()
 
   int drives_count = m;
 
-  /*
-   * The maximum amount of money she can spend on a keyboard and USB drive, or -1 if she can't purchase both items
-   */
-
   int moneySpent = getMoneySpent(keyboards_count, keyboards, drives_count, drives, b);
 
   printf("%d\n", moneySpent);
+
+  free(drives);
+  free(keyboards);
 
   return 0;
 }
