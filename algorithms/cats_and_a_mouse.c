@@ -1,8 +1,23 @@
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 char *catAndMouse(int x, int y, int z)
 {
+  int cat_a = z > x ? z - x : x - z;
+  int cat_b = z > y ? z - y : y - z;
+
+  if (cat_a < cat_b)
+  {
+    return "Cat A";
+  }
+  else if (cat_a > cat_b)
+  {
+    return "Cat B";
+  }
+  else
+  {
+    return "Mouse C";
+  }
 }
 
 int main()
